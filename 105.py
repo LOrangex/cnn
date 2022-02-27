@@ -46,7 +46,7 @@ model.compile(loss="categorical_crossentropy", optimizer="adam",
               metrics=["accuracy"])
 # 訓練模型
 history = model.fit(X_train, Y_train, validation_split=0.2,
-                    epochs=9, batch_size=128, verbose=2)
+                    epochs=15, batch_size=128, verbose=2)
 # 評估模型
 print("\nTesting ...")
 loss, accuracy = model.evaluate(X_train, Y_train)
