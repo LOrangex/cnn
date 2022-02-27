@@ -21,13 +21,13 @@ Y_train = to_categorical(Y_train)
 Y_test = to_categorical(Y_test)
 # 定義模型
 model = Sequential()
-model.add(Conv2D(10, kernel_size=(3, 3), padding="same",
+model.add(Conv2D(20, kernel_size=(3, 3), padding="same",
                  input_shape=X_train.shape[1:], activation="relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Conv2D(10, kernel_size=(3, 3), padding="same",
+model.add(Conv2D(20, kernel_size=(3, 3), padding="same",
                  activation="relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Conv2D(10, kernel_size=(3, 3), padding="same",
+model.add(Conv2D(20, kernel_size=(3, 3), padding="same",
                  activation="relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
@@ -41,7 +41,7 @@ model.compile(loss="categorical_crossentropy", optimizer="adam",
               metrics=["accuracy"])
 # 訓練模型
 history = model.fit(X_train, Y_train, validation_split=0.2,
-                    epochs=9, batch_size=128, verbose=2)
+                    epochs20, batch_size=128, verbose=2)
 # 評估模型
 print("\nTesting ...")
 loss, accuracy = model.evaluate(X_train, Y_train)
