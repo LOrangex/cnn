@@ -28,10 +28,10 @@ model.add(Conv2D(20, kernel_size=(3, 3), padding="same",
                  activation="relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
-model.add(Flatten())
+model.add(Flatten())  # 將矩陣轉成向量
 model.add(Dense(512, activation="relu"))
 model.add(Dense(10, activation="softmax"))
-model.summary()   # 顯示模型摘要資訊
+model.summary()  # 顯示模型摘要資訊
 # 編譯模型
 model.compile(loss="categorical_crossentropy", optimizer="adam",
               metrics=["accuracy"])
@@ -49,9 +49,10 @@ print("Saving Model: cifar10.h5 ...")
 model.save("cifar10.h5")
 # 顯示圖表來分析模型的訓練過程
 import matplotlib.pyplot as plt
+
 # 顯示訓練和驗證損失
 loss = history.history["loss"]
-epochs = range(1, len(loss)+1)
+epochs = range(1, len(loss) + 1)
 val_loss = history.history["val_loss"]
 plt.plot(epochs, loss, "bo-", label="Training Loss")
 plt.plot(epochs, val_loss, "ro--", label="Validation Loss")
@@ -62,7 +63,7 @@ plt.legend()
 plt.show()
 # 顯示訓練和驗證準確度
 acc = history.history["accuracy"]
-epochs = range(1, len(acc)+1)
+epochs = range(1, len(acc) + 1)
 val_acc = history.history["val_accuracy"]
 plt.plot(epochs, acc, "bo-", label="Training Acc")
 plt.plot(epochs, val_acc, "ro--", label="Validation Acc")
@@ -71,4 +72,3 @@ plt.xlabel("Epochs")
 plt.ylabel("Accuracy")
 plt.legend()
 plt.show()
-
